@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./Calcul.css";
 
-const IMC: React.FC = () => {
+const Calcul: React.FC = () => {
   const [poids, setPoids] = useState("");
   const [taille, setTaille] = useState("");
   const [result, setResult] = useState<number | null>(null);
@@ -11,15 +12,44 @@ const IMC: React.FC = () => {
     if (p > 0 && t > 0) setResult(p / (t * t));
   };
 
+  // Fonction pour déterminer la couleur selon l'IMC
+  const getIMCColor = (imc: number) => {
+    if (imc < 18.5) return "orange"; // Insuffisance pondérale
+    if (imc >= 18.5 && imc < 25) return "green"; // Poids normal
+    if (imc >= 25 && imc < 30) return "orange"; // Surpoids
+    return "red"; // Obésité
+  };
+
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 border rounded">
-      <h2 className="text-2xl font-bold mb-4">Calcul IMC</h2>
-      <input type="number" placeholder="Poids (kg)" value={poids} onChange={e => setPoids(e.target.value)} className="border p-2 mb-2 w-full"/>
-      <input type="number" placeholder="Taille (cm)" value={taille} onChange={e => setTaille(e.target.value)} className="border p-2 mb-2 w-full"/>
-      <button onClick={calculerIMC} className="px-4 py-2 bg-green-500 text-white rounded">Calculer</button>
-      {result !== null && <p className="mt-4 font-bold">Votre IMC est : {result.toFixed(2)}</p>}
+    <div className="imc-container">
+      <h2>Calcul IMC</h2>
+      <input
+        type="number"
+        placeholder="Poids (kg)"
+        value={poids}
+        onChange={(e) => setPoids(e.target.value)}
+        className="imc-input"
+      />
+      <input
+        type="number"
+        placeholder="Taille (cm)"
+        value={taille}
+        onChange={(e) => setTaille(e.target.value)}
+        className="imc-input"
+      />
+      <button onClick={calculerIMC} className="imc-button">
+        Calculer
+      </button>
+      {result !== null && (
+        <p
+          className="imc-result"
+          style={{ color: getIMCColor(result) }}
+        >
+          Votre IMC est : {result.toFixed(2)}
+        </p>
+      )}
     </div>
   );
 };
 
-export default IMC;
+export default Calcul;

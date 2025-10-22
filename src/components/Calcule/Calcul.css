@@ -1,0 +1,45 @@
+.imc-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+    margin-top: 10%
+
+}
+
+.imc-container h2 {
+  margin-bottom: 20px;
+}
+
+.imc-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.imc-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.imc-button:hover {
+  background-color: #218838;
+}
+
+.imc-result {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
