@@ -1,7 +1,7 @@
 // NotFound.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import "./error.css"; // Assure-toi d'avoir le CSS associé
+import "./error.css"
 
 const NotFound: React.FC = () => {
   return (
